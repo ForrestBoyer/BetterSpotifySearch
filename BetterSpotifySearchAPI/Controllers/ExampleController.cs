@@ -13,8 +13,13 @@ public class ExampleController : ControllerBase
     }
 
     [HttpGet]
-    public int GetRandomNumber2()
+    public List<int> GetRandomNumbers(int count)
     {
-        return Random.Shared.Next();
+        List<int> numbers = new List<int>();
+        for (int i = 0; i < count; i++)
+        {
+            numbers.Add(Random.Shared.Next());
+        }
+        return numbers;
     }
 }
