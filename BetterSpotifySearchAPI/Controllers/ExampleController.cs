@@ -1,25 +1,33 @@
 using Microsoft.AspNetCore.Mvc;
+using BetterSpotifySearchAPI.Spotify;
 
-namespace BetterSpotifySearchAPI.Controllers;
-
-[ApiController]
-[Route("api/[controller]/[action]")]
-public class ExampleController : ControllerBase
+namespace BetterSpotifySearchAPI.Controllers
 {
-    [HttpGet]
-    public int GetRandomNumber()
+    [ApiController]
+    [Route("api/[controller]/[action]")]
+    public class ExampleController : ControllerBase
     {
-        return Random.Shared.Next();
-    }
-
-    [HttpGet]
-    public List<int> GetRandomNumbers(int count)
-    {
-        List<int> numbers = new List<int>();
-        for (int i = 0; i < count; i++)
+        [HttpGet]
+        public int GetRandomNumber()
         {
-            numbers.Add(Random.Shared.Next());
+            return Random.Shared.Next();
         }
-        return numbers;
+
+        [HttpGet]
+        public List<int> GetRandomNumbers(int count)
+        {
+            List<int> numbers = new List<int>();
+            for (int i = 0; i < count; i++)
+            {
+                numbers.Add(Random.Shared.Next());
+            }
+            return numbers;
+        }
+
+        [HttpGet]
+        public string TestSpotify()
+        {
+            return Authentication.GetAuthorizationUrl();
+        }
     }
 }

@@ -1,12 +1,14 @@
 {
   "version": 2,
-  "dgSpecHash": "3zqoP+djuExXyfGHG2Off62J5KIRBNwaOXLmHiEwXUCy/rKut90TBO2j8KQ5ospNp+WkwoAS3VFj4a0BKMxsiA==",
+  "dgSpecHash": "C5stBX416tkpe843peUUq4LvOzgEsuXDO+FLuJ028EiYXzsVa15fnDmcMIRPLWzer5jSljCN+Od4yscIngHQ6g==",
   "success": true,
   "projectFilePath": "C:\\Users\\forre\\OneDrive\\Documents\\Coding\\SWE2\\BetterSpotifySearch\\BetterSpotifySearchAPI\\BetterSpotifySearchAPI.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\forre\\.nuget\\packages\\microsoft.aspnetcore.openapi\\7.0.5\\microsoft.aspnetcore.openapi.7.0.5.nupkg.sha512",
     "C:\\Users\\forre\\.nuget\\packages\\microsoft.extensions.apidescription.server\\6.0.5\\microsoft.extensions.apidescription.server.6.0.5.nupkg.sha512",
     "C:\\Users\\forre\\.nuget\\packages\\microsoft.openapi\\1.4.3\\microsoft.openapi.1.4.3.nupkg.sha512",
+    "C:\\Users\\forre\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512",
+    "C:\\Users\\forre\\.nuget\\packages\\spotifyapi.web\\7.0.2\\spotifyapi.web.7.0.2.nupkg.sha512",
     "C:\\Users\\forre\\.nuget\\packages\\swashbuckle.aspnetcore\\6.4.0\\swashbuckle.aspnetcore.6.4.0.nupkg.sha512",
     "C:\\Users\\forre\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\6.4.0\\swashbuckle.aspnetcore.swagger.6.4.0.nupkg.sha512",
     "C:\\Users\\forre\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\6.4.0\\swashbuckle.aspnetcore.swaggergen.6.4.0.nupkg.sha512",

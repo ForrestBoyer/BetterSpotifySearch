@@ -31,3 +31,5 @@ C:\Users\forre\OneDrive\Documents\Coding\SWE2\BetterSpotifySearch\BetterSpotifyS
 C:\Users\forre\OneDrive\Documents\Coding\SWE2\BetterSpotifySearch\BetterSpotifySearchAPI\obj\Debug\net7.0\BetterSpotifySearchAPI.pdb
 C:\Users\forre\OneDrive\Documents\Coding\SWE2\BetterSpotifySearch\BetterSpotifySearchAPI\obj\Debug\net7.0\BetterSpotifySearchAPI.genruntimeconfig.cache
 C:\Users\forre\OneDrive\Documents\Coding\SWE2\BetterSpotifySearch\BetterSpotifySearchAPI\obj\Debug\net7.0\ref\BetterSpotifySearchAPI.dll
+C:\Users\forre\OneDrive\Documents\Coding\SWE2\BetterSpotifySearch\BetterSpotifySearchAPI\bin\Debug\net7.0\Newtonsoft.Json.dll
+C:\Users\forre\OneDrive\Documents\Coding\SWE2\BetterSpotifySearch\BetterSpotifySearchAPI\bin\Debug\net7.0\SpotifyAPI.Web.dll
