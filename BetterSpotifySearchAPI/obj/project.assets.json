@@ -546,11 +546,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\forre\\OneDrive\\Documents\\Coding\\SWE2\\BetterSpotifySearch\\BetterSpotifySearchAPI\\BetterSpotifySearchAPI.csproj",
+      "projectUniqueName": "c:\\Users\\forre\\OneDrive\\Documents\\Coding\\SWE2\\BetterSpotifySearch\\BetterSpotifySearchAPI\\BetterSpotifySearchAPI.csproj",
       "projectName": "BetterSpotifySearchAPI",
-      "projectPath": "C:\\Users\\forre\\OneDrive\\Documents\\Coding\\SWE2\\BetterSpotifySearch\\BetterSpotifySearchAPI\\BetterSpotifySearchAPI.csproj",
+      "projectPath": "c:\\Users\\forre\\OneDrive\\Documents\\Coding\\SWE2\\BetterSpotifySearch\\BetterSpotifySearchAPI\\BetterSpotifySearchAPI.csproj",
       "packagesPath": "C:\\Users\\forre\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\forre\\OneDrive\\Documents\\Coding\\SWE2\\BetterSpotifySearch\\BetterSpotifySearchAPI\\obj\\",
+      "outputPath": "c:\\Users\\forre\\OneDrive\\Documents\\Coding\\SWE2\\BetterSpotifySearch\\BetterSpotifySearchAPI\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\forre\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -611,7 +611,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.101\\RuntimeIdentifierGraph.json"
       }
     }
   }

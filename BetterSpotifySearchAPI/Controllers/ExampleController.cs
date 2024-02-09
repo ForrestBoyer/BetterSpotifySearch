@@ -1,5 +1,4 @@
 using Microsoft.AspNetCore.Mvc;
-using BetterSpotifySearchAPI.Spotify;
 
 namespace BetterSpotifySearchAPI.Controllers
 {
@@ -22,12 +21,6 @@ namespace BetterSpotifySearchAPI.Controllers
                 numbers.Add(Random.Shared.Next());
             }
             return numbers;
-        }
-
-        [HttpGet]
-        public string TestSpotify()
-        {
-            return Authentication.GetAuthorizationUrl();
         }
     }
 }
