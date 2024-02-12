@@ -7,9 +7,7 @@
             "type": "process",
             "args": [
                 "build",
-                "${workspaceFolder}/BetterSpotifySearch/BetterSpotifySearchAPI.csproj",
-                "/property:GenerateFullPaths=true",
-                "/consoleloggerparameters:NoSummary"
+                "${workspaceFolder}/BetterSpotifySearchAPI/BetterSpotifySearchAPI.csproj"
             ],
             "problemMatcher": "$msCompile",
             "group": {

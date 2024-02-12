@@ -53,7 +53,7 @@ namespace BetterSpotifySearchAPI.Controllers
                 { "code", authorizationCode },
                 { "redirect_url", _redirectUri }
             });
-
+            
             var response = await httpClient.SendAsync(requestMessage);
             var content = await response.Content.ReadAsStringAsync();
 
