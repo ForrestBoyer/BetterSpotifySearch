@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using System.Net.Http.Headers;
 using System.Text;
+using Newtonsoft.Json.Linq;
 
 namespace BetterSpotifySearchAPI.Controllers
 {
@@ -14,6 +15,9 @@ namespace BetterSpotifySearchAPI.Controllers
         private static readonly string _scopes = "user-read-private user-read-email";
         private static readonly string _redirectUri = "http://localhost:40080/api/spotifyauthentication/confirmationcallback";
 
+        public static bool Authenticed { get; set; } = false;
+        public static string? AccessToken { get; set; }
+
         [HttpGet]
         public IActionResult Register()
         {
@@ -24,16 +28,18 @@ namespace BetterSpotifySearchAPI.Controllers
         [HttpGet]
         public async Task<IActionResult> ConfirmationCallback(string code, string state)
         {
-            string? accessCode = null;
+            string? accessToken = null;
 
             if (state == _state)
             {
-                accessCode = await GetAccessToken(code);
+                accessToken = await GetAccessToken(code);
             }
 
-            if (accessCode != null)
+            if (accessToken != null)
             {
-                return Ok(accessCode);
+                AccessToken = accessToken;
+                Authenticed = true;
+                return Ok(accessToken);
             }
             else
             {
@@ -45,19 +51,34 @@ namespace BetterSpotifySearchAPI.Controllers
         {
             using HttpClient httpClient = new HttpClient();
 
+            string encoded = $"{Uri.EscapeDataString(_redirectUri)}";
+
             var requestMessage = new HttpRequestMessage(HttpMethod.Post, "https://accounts.spotify.com/api/token");
             requestMessage.Headers.Authorization = new AuthenticationHeaderValue("Basic", Convert.ToBase64String(Encoding.UTF8.GetBytes($"{_clientId}:{_clientSecret}")));
-            requestMessage.Content = new FormUrlEncodedContent(new Dictionary<string, string>
-            {
-                { "grant_type", "authorization_code" },
-                { "code", authorizationCode },
-                { "redirect_url", _redirectUri }
-            });
+
+            // Specifically do not URL encode the _redirectUrl in this step to match the URL registered with spotify
+            var requestData = $"grant_type=authorization_code&code={Uri.EscapeDataString(authorizationCode)}&redirect_uri={_redirectUri}";
+            var requestContent = new StringContent(requestData, Encoding.UTF8, "application/x-www-form-urlencoded");
+
+            requestMessage.Content = requestContent;
             
             var response = await httpClient.SendAsync(requestMessage);
-            var content = await response.Content.ReadAsStringAsync();
 
-            return content;
+            if (response.IsSuccessStatusCode)
+            {
+                var content = await response.Content.ReadAsStringAsync();
+                return GetAccessTokenFromJson(content);
+            }
+            else
+            {
+                return null;
+            }
+        }
+
+        public static string GetAccessTokenFromJson(string jsonResponse)
+        {
+            var jsonObject = JObject.Parse(jsonResponse);
+            return jsonObject["access_token"]?.ToString();
         }
 
         public static string GetAuthorizationUrl()
