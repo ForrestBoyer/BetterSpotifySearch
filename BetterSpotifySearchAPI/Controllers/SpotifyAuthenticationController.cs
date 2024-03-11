@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 using System.Net.Http.Headers;
 using System.Text;
 using Newtonsoft.Json.Linq;
+using Microsoft.AspNetCore.Mvc.ViewFeatures;
 
 namespace BetterSpotifySearchAPI.Controllers
 {
@@ -17,6 +18,18 @@ namespace BetterSpotifySearchAPI.Controllers
 
         public static bool Authenticed { get; set; } = false;
         public static string? AccessToken { get; set; }
+        private readonly IAccessService _AccessService;
+
+        public SpotifyAuthenticationController(IAccessService AccessService){
+            _AccessService = AccessService;
+        }
+
+        [HttpGet]
+        public IActionResult Test()
+        {
+            _AccessService.SetAccessToken("test");
+            return Ok(_AccessService.GetAccessToken());
+        }
 
         [HttpGet]
         public IActionResult Register()

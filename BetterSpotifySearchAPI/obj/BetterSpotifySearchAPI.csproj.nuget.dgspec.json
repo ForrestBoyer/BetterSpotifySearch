@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\forre\\OneDrive\\Documents\\Coding\\SWE2\\BetterSpotifySearch\\BetterSpotifySearchAPI\\BetterSpotifySearchAPI.csproj": {}
+    "C:\\Users\\user\\OneDrive\\Documents\\GitHub\\BetterSpotifySearch\\BetterSpotifySearchApi\\BetterSpotifySearchAPI.csproj": {}
   },
   "projects": {
-    "C:\\Users\\forre\\OneDrive\\Documents\\Coding\\SWE2\\BetterSpotifySearch\\BetterSpotifySearchAPI\\BetterSpotifySearchAPI.csproj": {
+    "C:\\Users\\user\\OneDrive\\Documents\\GitHub\\BetterSpotifySearch\\BetterSpotifySearchApi\\BetterSpotifySearchAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\forre\\OneDrive\\Documents\\Coding\\SWE2\\BetterSpotifySearch\\BetterSpotifySearchAPI\\BetterSpotifySearchAPI.csproj",
+        "projectUniqueName": "C:\\Users\\user\\OneDrive\\Documents\\GitHub\\BetterSpotifySearch\\BetterSpotifySearchApi\\BetterSpotifySearchAPI.csproj",
         "projectName": "BetterSpotifySearchAPI",
-        "projectPath": "C:\\Users\\forre\\OneDrive\\Documents\\Coding\\SWE2\\BetterSpotifySearch\\BetterSpotifySearchAPI\\BetterSpotifySearchAPI.csproj",
-        "packagesPath": "C:\\Users\\forre\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\forre\\OneDrive\\Documents\\Coding\\SWE2\\BetterSpotifySearch\\BetterSpotifySearchAPI\\obj\\",
+        "projectPath": "C:\\Users\\user\\OneDrive\\Documents\\GitHub\\BetterSpotifySearch\\BetterSpotifySearchApi\\BetterSpotifySearchAPI.csproj",
+        "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\user\\OneDrive\\Documents\\GitHub\\BetterSpotifySearch\\BetterSpotifySearchApi\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\forre\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\user\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -64,6 +64,24 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[7.0.14, 7.0.14]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Host.win-x64",
+              "version": "[7.0.14, 7.0.14]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[7.0.14, 7.0.14]"
+            },
+            {
+              "name": "Microsoft.WindowsDesktop.App.Ref",
+              "version": "[7.0.14, 7.0.14]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.AspNetCore.App": {
               "privateAssets": "none"
@@ -72,7 +90,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.101\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100\\RuntimeIdentifierGraph.json"
         }
       }
     }
