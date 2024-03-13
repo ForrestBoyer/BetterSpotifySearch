@@ -34,3 +34,15 @@ jobs:
         cd BetterSpotifySearchAPI.Tests
         dotnet restore
         dotnet test --no-restore --verbosity normal
+
+    # Install NPM
+    - name: Install NPM dependencies
+      run: |
+        cd BetterSpotifySearch
+        npm install
+
+    # Build Angular
+    - name: Build Angular Project
+      run: |
+        cd BetterSpotifySearch
+        npm run build -- --prod
