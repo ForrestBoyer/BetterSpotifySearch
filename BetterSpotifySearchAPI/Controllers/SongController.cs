@@ -21,7 +21,7 @@ namespace BetterSpotifySearchAPI.Controllers
         [HttpGet]
         public async Task<IActionResult> SharedServiceTest()
         {
-            return(Ok(_AccessService.GetTestToken()));
+            return(Ok(_accessService.GetTestToken()));
         }
 
         [HttpGet]
@@ -29,7 +29,7 @@ namespace BetterSpotifySearchAPI.Controllers
         public async Task<IActionResult> Songs(string? name)
         {
             using HttpClient httpClient = new HttpClient();
-            string? _accessToken = _AccessService.GetAccessToken();
+            string? _accessToken = _accessService.GetAccessToken();
 
             if(name == null)
             {
