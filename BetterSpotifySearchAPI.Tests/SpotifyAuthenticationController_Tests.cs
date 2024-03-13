@@ -15,3 +15,4 @@ public class SpotifyAuthenticationController_Tests
         
     }
 }
+cache-dependency-path: BetterSpotifySearch/package-lock.json
