@@ -34,4 +34,3 @@ jobs:
         cd BetterSpotifySearchAPI.Tests
         dotnet restore
         dotnet test --no-restore --verbosity normal
-
