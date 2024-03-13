@@ -44,4 +44,4 @@ jobs:
     - name: Build Angular Project
       run: |
         cd BetterSpotifySearch
-        npm run build -- --prod
+        npm run build:ng -- --prod

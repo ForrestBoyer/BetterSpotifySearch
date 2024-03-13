@@ -7,8 +7,8 @@
     "build:api": "dotnet build --project ../BetterSpotifySearchAPI/BetterSpotifySearchAPI.csproj",
     "start:ng": "ng serve",
     "build:ng": "ng build", 
-    "start": "concurrently \"npm run start:api\" \"npm run start:ng\"",
-    "build": "concurrently \"npm run test:api\" \"npm run build:api\" \"npm run build:ng\""
+    "start:all": "concurrently \"npm run start:api\" \"npm run start:ng\"",
+    "build:all": "concurrently \"npm run test:api\" \"npm run build:api\" \"npm run build:ng\""
   },
   "private": true,
   "dependencies": {
