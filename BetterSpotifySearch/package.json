@@ -2,11 +2,11 @@
   "name": "better-spotify-search",
   "version": "0.0.0",
   "scripts": {
-    "start": "concurrently \"dotnet run --project ../BetterSpotifySearchAPI/BetterSpotifySearchAPI.csproj\" \"ng serve\"",
-    "ng": "ng",
-    "build": "ng build",
-    "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test:api": "dotnet test ../BetterSpotifySearchAPI.Tests/BetterSpotifySearchAPI.Tests.csproj",
+    "start:api": "dotnet run --project ../BetterSpotifySearchAPI/BetterSpotifySearchAPI.csproj",
+    "start:ng": "ng serve",
+    "start:servers": "concurrently \"npm run start:api\" \"npm run start:ng\"",
+    "start": "npm run test:api && npm run start:servers"
   },
   "private": true,
   "dependencies": {
