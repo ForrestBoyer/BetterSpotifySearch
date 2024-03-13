@@ -23,8 +23,8 @@ namespace BetterSpotifySearchAPI.Controllers
         }
 
         [HttpGet]
-        [Route("{name}/{offset?}")]
-        public async Task<IActionResult> Artists(string? name, int? offset)
+        [Route("{name}/")]
+        public async Task<IActionResult> Artists(string? name)
         {
             using HttpClient httpClient = new HttpClient();
             string? _accessToken = _AccessService.GetAccessToken();
@@ -37,10 +37,6 @@ namespace BetterSpotifySearchAPI.Controllers
             requestBuilder.Append("q=" + Uri.EscapeDataString(name));
             requestBuilder.Append("&type=artist");
             requestBuilder.Append("&limit=10");
-            if(offset != null)
-            {
-                requestBuilder.Append("&offset=" + offset);
-            }
             string requestString = requestBuilder.ToString();
 
             var requestMessage = new HttpRequestMessage(HttpMethod.Get, requestString);
