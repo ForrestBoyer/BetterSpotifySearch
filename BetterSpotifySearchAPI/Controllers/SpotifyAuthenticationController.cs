@@ -25,7 +25,8 @@ namespace BetterSpotifySearchAPI.Controllers
         }
 
         [HttpPost]
-        public IActionResult SharedServiceTest([FromBody]string? testToken)
+        [Route("{testToken}")]
+        public IActionResult SharedServiceTest(string? testToken)
         {
             _AccessService.SetTestToken(testToken);
             return Ok(_AccessService.GetTestToken());
