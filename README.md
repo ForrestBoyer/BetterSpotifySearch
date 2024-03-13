@@ -36,11 +36,12 @@ How to Install Dependencies:
 10. Run: ```ng add @angular/material```, and when prompted, select ```indigo/pink```, ```yes```, ```yes```.
 ___
 How to Build on Local Machine and Run Tests:  
-1. Navigate to ```./BetterSpotifySearch/BetterSpotifySearch```
-2. Run: ```npm start```
-3. This will run all tests, and lauch the front-end and back-end
-4. The front-end can be accessed by visiting ```http://localhost:4200/```
-5. The back-end can be accessed by visiting ```http://localhost:40080/```
+1. Navigate to ```./BetterSpotifySearch/BetterSpotifySearch```.
+2. Run: ```npm start```.
+3. If an error regarding 'concurrently' ocurrs, Run: ```npm install -g concurrently```.
+4. This will run all tests, and lauch the front-end and back-end.
+5. The front-end can be accessed by visiting ```http://localhost:4200/```.
+6. The back-end can be accessed by visiting ```http://localhost:40080/```.
 ___
 Development Tools Used:
 - Angular / Angular Material - Front-end design
