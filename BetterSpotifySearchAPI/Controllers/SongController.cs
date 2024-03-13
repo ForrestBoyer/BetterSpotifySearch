@@ -12,16 +12,16 @@ namespace BetterSpotifySearchAPI.Controllers
     [Route("api/[controller]/[action]")]
     public class SongController : ControllerBase
     {
-        private readonly IAccessService _AccessService;
+        private readonly IAccessService _accessService;
 
-        public SongController(IAccessService AccessService){
-            _AccessService = AccessService;
+        public SongController(IAccessService accessService){
+            _accessService = accessService;
         }
         
         [HttpGet]
-        public async Task<IActionResult> Songs([FromBody] string? name)
+        public async Task<IActionResult> Songs(string? name)
         {
-            string? sharedInfo = _AccessService.GetAccessToken();
+            string? sharedInfo = _accessService.GetAccessToken();
             return Ok(sharedInfo);
         }
     }
