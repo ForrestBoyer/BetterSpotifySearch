@@ -17,6 +17,7 @@ jobs:
     strategy:
       matrix:
         node-version: [16.10.0]
+        cache-dependency-path: BetterSpotifySearch/package-lock.json
 
     steps:
     - uses: actions/checkout@v3
