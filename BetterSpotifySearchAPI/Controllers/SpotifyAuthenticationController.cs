@@ -24,11 +24,11 @@ namespace BetterSpotifySearchAPI.Controllers
             _AccessService = AccessService;
         }
 
-        [HttpGet]
-        public IActionResult Test()
+        [HttpPost]
+        public IActionResult SharedServiceTest([FromBody]string? testToken)
         {
-            _AccessService.SetAccessToken("test");
-            return Ok(_AccessService.GetAccessToken());
+            _AccessService.SetTestToken(testToken);
+            return Ok(_AccessService.GetTestToken());
         }
 
         [HttpGet]
@@ -51,6 +51,7 @@ namespace BetterSpotifySearchAPI.Controllers
             if (accessToken != null)
             {
                 AccessToken = accessToken;
+                _AccessService.SetAccessToken(accessToken);
                 Authenticed = true;
                 return Ok(accessToken);
             }
