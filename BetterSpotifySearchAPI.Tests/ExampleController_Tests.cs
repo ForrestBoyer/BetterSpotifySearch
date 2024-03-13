@@ -13,8 +13,15 @@ public class ExampleController_Tests
     }
 
     [Fact]
-    public void Test()
+    public void TestGetRandomNumbers()
     {
-        Assert.Equal(0, 0);
+        var controller = new ExampleController();
+
+        var numbers = controller.GetRandomNumbers(10);
+
+        foreach (var number in numbers)
+        {
+            Assert.InRange(number, int.MinValue, int.MaxValue);
+        }
     }
 }
