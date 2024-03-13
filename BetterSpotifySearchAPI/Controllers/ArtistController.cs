@@ -1,5 +1,3 @@
-
-
 using Microsoft.AspNetCore.Mvc;
 using System.Net.Http.Headers;
 using System.Web;
@@ -10,11 +8,11 @@ namespace BetterSpotifySearchAPI.Controllers
 {
     [ApiController]
     [Route("api/[controller]/[action]")]
-    public class SongController : ControllerBase
+    public class ArtistController : ControllerBase
     {
         private readonly IAccessService _AccessService;
 
-        public SongController(IAccessService accessService){
+        public ArtistController(IAccessService accessService){
             _AccessService = accessService;
         }
 
@@ -25,8 +23,8 @@ namespace BetterSpotifySearchAPI.Controllers
         }
 
         [HttpGet]
-        [Route("{name}")]
-        public async Task<IActionResult> Songs(string? name)
+        [Route("{name}/{offset?}")]
+        public async Task<IActionResult> Artists(string? name, int? offset)
         {
             using HttpClient httpClient = new HttpClient();
             string? _accessToken = _AccessService.GetAccessToken();
@@ -37,8 +35,12 @@ namespace BetterSpotifySearchAPI.Controllers
             }
             StringBuilder requestBuilder = new StringBuilder("https://api.spotify.com/v1/search?");
             requestBuilder.Append("q=" + Uri.EscapeDataString(name));
-            requestBuilder.Append("&type=track");
+            requestBuilder.Append("&type=artist");
             requestBuilder.Append("&limit=10");
+            if(offset != null)
+            {
+                requestBuilder.Append("&offset=" + offset);
+            }
             string requestString = requestBuilder.ToString();
 
             var requestMessage = new HttpRequestMessage(HttpMethod.Get, requestString);
