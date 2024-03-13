@@ -35,24 +35,22 @@ namespace BetterSpotifySearchAPI.Controllers
             {
                 return BadRequest("No search value");
             }
-            StringBuilder requestBuilder = new StringBuilder("https://api.spotify.com/v1/search");
-            requestBuilder.Append('?');
-            requestBuilder.Append(Uri.EscapeDataString(name));
+            StringBuilder requestBuilder = new StringBuilder("https://api.spotify.com/v1/search?");
+            requestBuilder.Append("q=" + Uri.EscapeDataString(name));
             requestBuilder.Append("&type=track");
             requestBuilder.Append("&limit=10");
             string requestString = requestBuilder.ToString();
 
             var requestMessage = new HttpRequestMessage(HttpMethod.Get, requestString);
-            requestMessage.Headers.Add("Bearer", _accessToken);
+            requestMessage.Headers.Authorization = new AuthenticationHeaderValue("Bearer", _accessToken);
 
-            return Ok(requestMessage.ToString());
-            // var response = await httpClient.SendAsync(requestMessage);
-            // if(response.IsSuccessStatusCode)
-            // {
-            //     var content = await response.Content.ReadAsStringAsync();
-            //     return Ok(content);
-            // }
-            // return BadRequest(response.ToString());
+            var response = await httpClient.SendAsync(requestMessage);
+            if(response.IsSuccessStatusCode)
+            {
+                var content = await response.Content.ReadAsStringAsync();
+                return Ok(content);
+            }
+            return BadRequest(response.ReasonPhrase);
         }
     }
 }
