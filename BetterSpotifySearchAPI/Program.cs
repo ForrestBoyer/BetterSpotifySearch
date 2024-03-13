@@ -9,6 +9,7 @@ builder.Services.AddControllers()
     {
         options.JsonSerializerOptions.WriteIndented = true;
     });
+builder.Services.AddSingleton<IAccessService, AccessService>();
 
 var app = builder.Build();
 
