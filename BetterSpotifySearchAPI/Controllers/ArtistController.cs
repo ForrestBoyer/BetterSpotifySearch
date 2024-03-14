@@ -19,7 +19,7 @@ namespace BetterSpotifySearchAPI.Controllers
         [HttpGet]
         public async Task<IActionResult> SharedServiceTest()
         {
-            return(Ok(_AccessService.GetTestToken() + "a"));
+            return(Ok(_AccessService.GetTestToken()));
         }
 
         [HttpGet]
