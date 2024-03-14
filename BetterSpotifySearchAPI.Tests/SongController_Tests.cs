@@ -6,13 +6,13 @@ namespace BetterSpotifySearchAPI.Tests;
 public class SongController_Tests
 {
     [Fact]
-    public void TestSongsNotNull()
+    public async void TestSongsNotNull()
     {
         var accessService = new Mock<IAccessService>();
 
         var controller = new SongController(accessService.Object);
 
-        var songs = controller.Songs("Sacrifices").Result;
+        var songs = await controller.Songs("Sacrifices");
 
         Assert.NotNull(songs);
     }
