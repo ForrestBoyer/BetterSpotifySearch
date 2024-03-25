@@ -48,7 +48,7 @@ namespace BetterSpotifySearchAPI.Controllers
                 var content = await response.Content.ReadAsStringAsync();
                 return Ok(content);
             }
-            return BadRequest(response.ReasonPhrase);
+            return BadRequest(response);
         }
     }
 }

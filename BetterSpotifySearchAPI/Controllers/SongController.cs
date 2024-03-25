@@ -1,5 +1,3 @@
-
-
 using Microsoft.AspNetCore.Mvc;
 using System.Net.Http.Headers;
 using System.Web;
@@ -50,7 +48,32 @@ namespace BetterSpotifySearchAPI.Controllers
                 var content = await response.Content.ReadAsStringAsync();
                 return Ok(content);
             }
-            return BadRequest(response.ReasonPhrase);
+            return BadRequest(response);
+        }
+
+        [Route("{songID}")]
+        public async Task<IActionResult> Features(string? songID){
+            using HttpClient httpClient = new HttpClient();
+            string? _accessToken = _AccessService.GetAccessToken();
+
+            if(songID == null){
+                return BadRequest("No song given");
+            }
+
+            StringBuilder requestBuilder = new StringBuilder("https://api.spotify.com/v1/audio-features/");
+            requestBuilder.Append(songID);
+            string requestString = requestBuilder.ToString();
+
+            var requestMessage = new HttpRequestMessage(HttpMethod.Get, requestString);
+            requestMessage.Headers.Authorization = new AuthenticationHeaderValue("Bearer", _accessToken);
+
+            var response = await httpClient.SendAsync(requestMessage);
+            if(response.IsSuccessStatusCode)
+            {
+                var content = await response.Content.ReadAsStringAsync();
+                return Ok(content);
+            }
+            return BadRequest(response);
         }
 
         public async Task<IActionResult> SearchBy(string? artists, string? genres, string? songs,
@@ -270,7 +293,7 @@ namespace BetterSpotifySearchAPI.Controllers
                 var content = await response.Content.ReadAsStringAsync();
                 return Ok(content);
             }
-            return BadRequest(response.ReasonPhrase);
+            return BadRequest(response);
         }
     }
 }
