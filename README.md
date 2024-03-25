@@ -38,7 +38,7 @@ How to Install Dependencies:
 ___
 How to Run Front-End / Back-End on Local Machine:  
 1. Navigate to ```./BetterSpotifySearch/BetterSpotifySearch```.
-2. Run: ```npm start:all```.
+2. Run: ```npm run start:all```.
 3. If an error regarding 'concurrently' ocurrs, Run: ```npm install -g concurrently```.
 4. This will lauch the front-end and back-end.
 5. The front-end can be accessed by visiting ```http://localhost:4200/```.
