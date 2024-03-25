@@ -12,7 +12,7 @@ public class SongController_Tests
 
         var controller = new SongController(accessService.Object);
 
-        var songs = await controller.Songs("Sacrifices");
+        var songs = await controller.Search("Sacrifices");
 
         Assert.NotNull(songs);
     }
