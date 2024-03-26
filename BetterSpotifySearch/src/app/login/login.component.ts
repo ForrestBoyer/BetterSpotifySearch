@@ -12,4 +12,8 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  authenticateUser(): void {
+    console.log("Authenticated!");
+  }
+
 }
