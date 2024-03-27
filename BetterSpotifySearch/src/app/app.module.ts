@@ -13,6 +13,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { CriteriaSearchComponent } from './criteria-search/criteria-search.component';
 import { SimilarSearchComponent } from './similar-search/similar-search.component';
 import { SongInfoComponent } from './song-info/song-info.component';
+import { SearchResultsComponent } from './search-results/search-results.component';
+import { InfoResultsComponent } from './info-results/info-results.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,9 @@ import { SongInfoComponent } from './song-info/song-info.component';
     LoginComponent,
     CriteriaSearchComponent,
     SimilarSearchComponent,
-    SongInfoComponent
+    SongInfoComponent,
+    SearchResultsComponent,
+    InfoResultsComponent
   ],
   imports: [
     BrowserModule,
