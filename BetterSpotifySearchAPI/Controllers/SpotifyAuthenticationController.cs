@@ -47,7 +47,7 @@ namespace BetterSpotifySearchAPI.Controllers
 
             if (state == _state)
             {
-                accessToken = await GetAccessToken(code);
+                accessToken = await GetAccessToken(code, _AccessService);
             }
 
             if (accessToken != null)
@@ -63,7 +63,7 @@ namespace BetterSpotifySearchAPI.Controllers
             }
         }
 
-        public static async Task<string?> GetAccessToken(string authorizationCode)
+        public static async Task<string?> GetAccessToken(string authorizationCode, IAccessService _aService)
         {
             using HttpClient httpClient = new HttpClient();
 
@@ -84,7 +84,7 @@ namespace BetterSpotifySearchAPI.Controllers
             {
                 var content = await response.Content.ReadAsStringAsync();
                 RefreshToken = GetRefreshTokenFromJson(content);
-                Task.Delay(new TimeSpan(1, 0, 0)).ContinueWith(async o => {AccessToken = await RefreshAccessToken();});
+                Task.Delay(new TimeSpan(1, 0, 0)).ContinueWith(async o => {AccessToken = await RefreshAccessToken(_aService);});
                 return GetAccessTokenFromJson(content);
             }
             else
@@ -106,7 +106,7 @@ namespace BetterSpotifySearchAPI.Controllers
             return jsonObject["refresh_token"]?.ToString();
         }
 
-        public static async Task<string?> RefreshAccessToken()
+        public static async Task<string?> RefreshAccessToken(IAccessService _aService)
         {
             using HttpClient httpClient = new HttpClient();
 
@@ -122,8 +122,9 @@ namespace BetterSpotifySearchAPI.Controllers
             {
                 string content = await response.Content.ReadAsStringAsync();
                 RefreshToken = GetRefreshTokenFromJson(content);
-                Task.Delay(new TimeSpan(1, 0, 0)).ContinueWith(async o => {AccessToken = await RefreshAccessToken();});
-                return GetAccessTokenFromJson(content);
+                Task.Delay(new TimeSpan(1, 0, 0)).ContinueWith(async o => {AccessToken = await RefreshAccessToken(_aService);});
+                _aService.SetAccessToken(GetAccessTokenFromJson(content));
+                return _aService.GetAccessToken();
             }
             else
             {
