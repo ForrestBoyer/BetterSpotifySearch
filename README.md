@@ -46,7 +46,7 @@ How to Run Front-End / Back-End on Local Machine:
 ___
 How to Run Front-End / Back-End and Tests:
 1. Navigate to ```./BetterSpotifySearch/BetterSpotifySearch```.
-2. Run: ```npm build:all```.
+2. Run: ```npm run build:all```.
 3. This will run all tests, and launch the front-end and back-end.
 4. The front-end can be accessed by visiting ```http://localhost:4200/```.
 5. The back-end can be accessed by visiting ```http://localhost:40080/```.  
