@@ -17,7 +17,7 @@ namespace BetterSpotifySearchAPI.Controllers
         private static readonly string _redirectUri = "http://localhost:40080/api/spotifyauthentication/confirmationcallback";
 
         public static bool Authenticed { get; set; } = false;
-        public static string? AccessToken { get; set; }
+        public static string? UserAccessToken { get; set; }
         private static string? RefreshToken { get; set; }
         private readonly IAccessService _AccessService;
 
@@ -43,19 +43,19 @@ namespace BetterSpotifySearchAPI.Controllers
         [HttpGet]
         public async Task<IActionResult> ConfirmationCallback(string code, string state)
         {
-            string? accessToken = null;
+            string? userAccessToken = null;
 
             if (state == _state)
             {
-                accessToken = await GetAccessToken(code, _AccessService);
+                userAccessToken = await GetAccessToken(code, _AccessService);
             }
 
-            if (accessToken != null)
+            if (userAccessToken != null)
             {
-                AccessToken = accessToken;
-                _AccessService.SetAccessToken(accessToken);
+                UserAccessToken = userAccessToken;
+                _AccessService.SetUserToken(userAccessToken);
                 Authenticed = true;
-                return Ok(accessToken);
+                return Ok(userAccessToken);
             }
             else
             {
@@ -87,7 +87,7 @@ namespace BetterSpotifySearchAPI.Controllers
                 if(newToken != null){
                     RefreshToken = newToken;
                 }
-                Task.Delay(new TimeSpan(1, 0, 0)).ContinueWith(async o => {AccessToken = await RefreshAccessToken(_aService);});
+                Task.Delay(new TimeSpan(1, 0, 0)).ContinueWith(async o => {UserAccessToken = await RefreshAccessToken(_aService);});
                 return GetAccessTokenFromJson(content);
             }
             else
@@ -128,9 +128,9 @@ namespace BetterSpotifySearchAPI.Controllers
                 if(newToken != null){
                     RefreshToken = newToken;
                 }
-                Task.Delay(new TimeSpan(1, 0, 0)).ContinueWith(async o => {AccessToken = await RefreshAccessToken(_aService);});
-                _aService.SetAccessToken(GetAccessTokenFromJson(content));
-                return _aService.GetAccessToken();
+                Task.Delay(new TimeSpan(1, 0, 0)).ContinueWith(async o => {UserAccessToken = await RefreshAccessToken(_aService);});
+                _aService.SetUserToken(GetAccessTokenFromJson(content));
+                return _aService.GetUserToken();
             }
             else
             {
