@@ -77,11 +77,11 @@ namespace BetterSpotifySearchAPI.Controllers
         }
 
         public async Task<IActionResult> SearchBy(string? artists, string? genres, string? songs,
-                                                  float? min_acoustic, float? max_acoustic, float? target_acoustic,
-                                                  float? min_dance, float? max_dance, float? target_dance,
+                                                  float? min_acousticness, float? max_acousticness, float? target_acousticness,
+                                                  float? min_danceability, float? max_danceability, float? target_danceability,
                                                   int? min_duration, int? max_duration, int? target_duration,
                                                   float? min_energy, float? max_energy, float? target_energy,
-                                                  float? min_instrumental, float? max_instrumental, float? target_instrumental,
+                                                  float? min_instrumentalness, float? max_instrumentalness, float? target_instrumentalness,
                                                   int? min_key, int? max_key, int? target_key,
                                                   float? min_liveness, float? max_liveness, float? target_liveness,
                                                   float? min_loudness, float? max_loudness, float? target_loudness,
@@ -89,7 +89,7 @@ namespace BetterSpotifySearchAPI.Controllers
                                                   int? min_popularity, int? max_popularity, int? target_popularity,
                                                   float? min_speechiness, float? max_speechiness, float? target_speechiness,
                                                   float? min_tempo, float? max_tempo, float? target_tempo,
-                                                  int? min_time_sig, int? max_time_sig, int? target_time_sig,
+                                                  int? min_time_signature, int? max_time_signature, int? target_time_signature,
                                                   float? min_valence, float? max_valence, float? target_valence)
         {
             using HttpClient httpClient = new HttpClient();
@@ -111,28 +111,28 @@ namespace BetterSpotifySearchAPI.Controllers
                 requestBuilder.Append("&=seed_tracks" + songs);
                 all_null = false;
             }
-            if(min_acoustic != null){
-                requestBuilder.Append("&=min_acousticness" + min_acoustic);
+            if(min_acousticness != null){
+                requestBuilder.Append("&=min_acousticness" + min_acousticness);
                 all_null = false;
             }
-            if(max_acoustic != null){
-                requestBuilder.Append("&=max_acousticness" + max_acoustic);
+            if(max_acousticness != null){
+                requestBuilder.Append("&=max_acousticness" + max_acousticness);
                 all_null = false;
             }
-            if(target_acoustic != null){
-                requestBuilder.Append("&=target_acousticness" + target_acoustic);
+            if(target_acousticness != null){
+                requestBuilder.Append("&=target_acousticness" + target_acousticness);
                 all_null = false;
             }
-            if(min_dance != null){
-                requestBuilder.Append("&=min_danceability" + min_dance);
+            if(min_danceability != null){
+                requestBuilder.Append("&=min_danceability" + min_danceability);
                 all_null = false;
             }
-            if(max_dance != null){
-                requestBuilder.Append("&=max_danceability" + max_dance);
+            if(max_danceability != null){
+                requestBuilder.Append("&=max_danceability" + max_danceability);
                 all_null = false;
             }
-            if(target_dance != null){
-                requestBuilder.Append("&=target_danceability" + target_dance);
+            if(target_danceability != null){
+                requestBuilder.Append("&=target_danceability" + target_danceability);
                 all_null = false;
             }
             if(min_duration != null){
@@ -159,16 +159,16 @@ namespace BetterSpotifySearchAPI.Controllers
                 requestBuilder.Append("&=target_energy" + target_energy);
                 all_null = false;
             }
-            if(min_instrumental != null){
-                requestBuilder.Append("&=min_instrumentalness" + min_instrumental);
+            if(min_instrumentalness != null){
+                requestBuilder.Append("&=min_instrumentalness" + min_instrumentalness);
                 all_null = false;
             }
-            if(max_instrumental != null){
-                requestBuilder.Append("&=max_instrumentalness" + max_instrumental);
+            if(max_instrumentalness != null){
+                requestBuilder.Append("&=max_instrumentalness" + max_instrumentalness);
                 all_null = false;
             }
-            if(target_instrumental != null){
-                requestBuilder.Append("&=target_instrumentalness" + target_instrumental);
+            if(target_instrumentalness != null){
+                requestBuilder.Append("&=target_instrumentalness" + target_instrumentalness);
                 all_null = false;
             }
             if(min_key != null){
@@ -255,16 +255,16 @@ namespace BetterSpotifySearchAPI.Controllers
                 requestBuilder.Append("&=target_tempo" + target_tempo);
                 all_null = false;
             }
-            if(min_time_sig != null){
-                requestBuilder.Append("&=min_time_signature" + min_time_sig);
+            if(min_time_signature != null){
+                requestBuilder.Append("&=min_time_signature" + min_time_signature);
                 all_null = false;
             }
-            if(max_time_sig != null){
-                requestBuilder.Append("&=max_time_signature" + max_time_sig);
+            if(max_time_signature != null){
+                requestBuilder.Append("&=max_time_signature" + max_time_signature);
                 all_null = false;
             }
-            if(target_time_sig != null){
-                requestBuilder.Append("&=target_time_signature" + target_time_sig);
+            if(target_time_signature != null){
+                requestBuilder.Append("&=target_time_signature" + target_time_signature);
                 all_null = false;
             }
             if(min_valence != null){
