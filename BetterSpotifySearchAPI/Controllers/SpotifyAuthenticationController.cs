@@ -18,6 +18,7 @@ namespace BetterSpotifySearchAPI.Controllers
 
         public static bool Authenticed { get; set; } = false;
         public static string? AccessToken { get; set; }
+        private static string? RefreshToken { get; set; }
         private readonly IAccessService _AccessService;
 
         public SpotifyAuthenticationController(IAccessService AccessService){
@@ -62,7 +63,7 @@ namespace BetterSpotifySearchAPI.Controllers
             }
         }
 
-        public static async Task<string> GetAccessToken(string authorizationCode)
+        public static async Task<string?> GetAccessToken(string authorizationCode)
         {
             using HttpClient httpClient = new HttpClient();
 
@@ -82,18 +83,53 @@ namespace BetterSpotifySearchAPI.Controllers
             if (response.IsSuccessStatusCode)
             {
                 var content = await response.Content.ReadAsStringAsync();
+                RefreshToken = GetRefreshTokenFromJson(content);
+                Task.Delay(new TimeSpan(1, 0, 0)).ContinueWith(async o => {AccessToken = await RefreshAccessToken();});
                 return GetAccessTokenFromJson(content);
             }
             else
             {
+                Console.WriteLine("Bad Response from RefreshAccessToken");
                 return null;
             }
         }
 
-        public static string GetAccessTokenFromJson(string jsonResponse)
+        public static string? GetAccessTokenFromJson(string jsonResponse)
         {
             var jsonObject = JObject.Parse(jsonResponse);
             return jsonObject["access_token"]?.ToString();
+        }
+
+        public static string? GetRefreshTokenFromJson(string jsonResponse)
+        {
+            var jsonObject = JObject.Parse(jsonResponse);
+            return jsonObject["refresh_token"]?.ToString();
+        }
+
+        public static async Task<string?> RefreshAccessToken()
+        {
+            using HttpClient httpClient = new HttpClient();
+
+            var requestMessage = new HttpRequestMessage(HttpMethod.Post, "https://accounts.spotify.com/api/token");
+            requestMessage.Headers.Add("contenttype", "application/x-www-form-urlencoded");
+            requestMessage.Headers.Authorization = new AuthenticationHeaderValue("Basic", Convert.ToBase64String(Encoding.UTF8.GetBytes($"{_clientId}:{_clientSecret}")));
+            string requestData = $"grant_type=refresh_token&refresh_token={Uri.EscapeDataString(RefreshToken)}";
+            var requestContent = new StringContent(requestData, Encoding.UTF8, "application/x-www-form-urlencoded");
+            requestMessage.Content = requestContent;
+
+            var response = await httpClient.SendAsync(requestMessage);
+            if(response.IsSuccessStatusCode)
+            {
+                string content = await response.Content.ReadAsStringAsync();
+                RefreshToken = GetRefreshTokenFromJson(content);
+                Task.Delay(new TimeSpan(1, 0, 0)).ContinueWith(async o => {AccessToken = await RefreshAccessToken();});
+                return GetAccessTokenFromJson(content);
+            }
+            else
+            {
+                Console.WriteLine("Bad Response from RefreshAccessToken");
+                return null;
+            }
         }
 
         public static string GetAuthorizationUrl()

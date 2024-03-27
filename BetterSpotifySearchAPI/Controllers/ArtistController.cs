@@ -24,7 +24,7 @@ namespace BetterSpotifySearchAPI.Controllers
 
         [HttpGet]
         [Route("{name}/")]
-        public async Task<IActionResult> Artists(string? name)
+        public async Task<IActionResult> Search(string? name)
         {
             using HttpClient httpClient = new HttpClient();
             string? _accessToken = _AccessService.GetAccessToken();
@@ -48,7 +48,7 @@ namespace BetterSpotifySearchAPI.Controllers
                 var content = await response.Content.ReadAsStringAsync();
                 return Ok(content);
             }
-            return BadRequest(response.ReasonPhrase);
+            return BadRequest(response);
         }
     }
 }
