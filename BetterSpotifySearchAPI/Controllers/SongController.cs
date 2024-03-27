@@ -3,6 +3,7 @@ using System.Net.Http.Headers;
 using System.Web;
 using System.Text;
 using Newtonsoft.Json.Linq;
+using Microsoft.AspNetCore.Http.HttpResults;
 
 namespace BetterSpotifySearchAPI.Controllers
 {
