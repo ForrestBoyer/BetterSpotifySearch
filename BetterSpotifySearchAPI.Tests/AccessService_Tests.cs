@@ -14,7 +14,7 @@ public class AccessService_Tests
         var authController = new SpotifyAuthenticationController(accessService);
         var songController = new SongController(accessService);
         
-        string token = "test0";
+        string token = "SongAccessTest";
 
         var pushResult = authController.SharedServiceTest(token);
         var okPush = pushResult as OkObjectResult;
@@ -38,7 +38,7 @@ public class AccessService_Tests
         var authController = new SpotifyAuthenticationController(accessService);
         var artistController = new ArtistController(accessService);
         
-        string token = "test0";
+        string token = "ArtistAccessTest";
 
         var pushResult = authController.SharedServiceTest(token);
         var okPush = pushResult as OkObjectResult;
