@@ -4,7 +4,7 @@
         <mat-card-content>
             <mat-form-field>
                 <mat-label>Enter a song</mat-label>
-                <input matInput>
+                <input matInput (input)="setSongName($event)">
             </mat-form-field>
         </mat-card-content>
         <mat-card-content>
@@ -92,7 +92,7 @@
             </div>
         </mat-card-content>
         <mat-card-content>
-            <button mat-raised-button color="accent"> 
+            <button mat-raised-button color="accent" (click)="searchSimilarSongs()">
                 Search
             </button>
         </mat-card-content>

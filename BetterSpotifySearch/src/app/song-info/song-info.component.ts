@@ -22,6 +22,7 @@ export class SongInfoComponent implements OnInit {
 
   searchSongInfo(): void {
     // api call for song 
+    // run register: http://localhost:40080/api/SpotifyAuthentication/Register
     // GET http://localhost:40080/api/Song/Search/{{songName}}
     // GET http://localhost:40080/api/Song/Features/{{songID}}
     console.log("Song info request: ", this.songName);
