@@ -6,10 +6,25 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./song-info.component.scss']
 })
 export class SongInfoComponent implements OnInit {
+  public songName?: string;
+  public songID?: number;
 
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  setSongName(event: any): void {
+    // Called from html on input (don't know how to pass event into here)
+    this.songName = event.target.value;
+    console.log("Song name set", this.songName);
+  }
+
+  searchSongInfo(): void {
+    // api call for song 
+    // GET http://localhost:40080/api/Song/Search/{{songName}}
+    // GET http://localhost:40080/api/Song/Features/{{songID}}
+    console.log("Song info request: ", this.songName);
   }
 
 }
