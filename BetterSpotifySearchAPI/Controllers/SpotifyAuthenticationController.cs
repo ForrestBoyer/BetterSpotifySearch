@@ -83,7 +83,10 @@ namespace BetterSpotifySearchAPI.Controllers
             if (response.IsSuccessStatusCode)
             {
                 var content = await response.Content.ReadAsStringAsync();
-                RefreshToken = GetRefreshTokenFromJson(content);
+                string? newToken = GetRefreshTokenFromJson(content);
+                if(newToken != null){
+                    RefreshToken = newToken;
+                }
                 Task.Delay(new TimeSpan(1, 0, 0)).ContinueWith(async o => {AccessToken = await RefreshAccessToken(_aService);});
                 return GetAccessTokenFromJson(content);
             }
@@ -111,7 +114,7 @@ namespace BetterSpotifySearchAPI.Controllers
             using HttpClient httpClient = new HttpClient();
 
             var requestMessage = new HttpRequestMessage(HttpMethod.Post, "https://accounts.spotify.com/api/token");
-            requestMessage.Headers.Add("contenttype", "application/x-www-form-urlencoded");
+            requestMessage.Headers.Add(Convert.ToBase64String(Encoding.UTF8.GetBytes("content-type")), "application/x-www-form-urlencoded");
             requestMessage.Headers.Authorization = new AuthenticationHeaderValue("Basic", Convert.ToBase64String(Encoding.UTF8.GetBytes($"{_clientId}:{_clientSecret}")));
             string requestData = $"grant_type=refresh_token&refresh_token={Uri.EscapeDataString(RefreshToken)}";
             var requestContent = new StringContent(requestData, Encoding.UTF8, "application/x-www-form-urlencoded");
@@ -121,7 +124,10 @@ namespace BetterSpotifySearchAPI.Controllers
             if(response.IsSuccessStatusCode)
             {
                 string content = await response.Content.ReadAsStringAsync();
-                RefreshToken = GetRefreshTokenFromJson(content);
+                string? newToken = GetRefreshTokenFromJson(content);
+                if(newToken != null){
+                    RefreshToken = newToken;
+                }
                 Task.Delay(new TimeSpan(1, 0, 0)).ContinueWith(async o => {AccessToken = await RefreshAccessToken(_aService);});
                 _aService.SetAccessToken(GetAccessTokenFromJson(content));
                 return _aService.GetAccessToken();
