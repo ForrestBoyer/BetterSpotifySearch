@@ -22,6 +22,10 @@ public class AccessService : IAccessService
     private string? _testToken;
     public AccessService()
     {
+        Task.Run(() => RequestToken()).Wait();
+    }
+    private async Task<bool> RequestToken()
+    {
         using HttpClient httpClient = new HttpClient();
         var requestMessage = new HttpRequestMessage(HttpMethod.Post, "https://accounts.spotify.com/api/token");
         requestMessage.Headers.Authorization = new AuthenticationHeaderValue("Basic", Convert.ToBase64String(Encoding.UTF8.GetBytes($"{_clientId}:{_clientSecret}")));
@@ -30,17 +34,20 @@ public class AccessService : IAccessService
         var requestContent = new StringContent(requestData, Encoding.UTF8, "application/x-www-form-urlencoded");
         requestMessage.Content = requestContent;
 
-        var response = httpClient.Send(requestMessage);
+        var response = await httpClient.SendAsync(requestMessage);
         if(response.IsSuccessStatusCode)
         {
             string? responseContent = null;
-            Task.Run(async () => responseContent = await response.Content.ReadAsStringAsync()).Wait();
+            responseContent = await response.Content.ReadAsStringAsync();
             var jsonObject = JObject.Parse(responseContent);
             SetAccessToken(jsonObject["access_token"]?.ToString());
+            Task.Delay(new TimeSpan(1, 0, 0)).ContinueWith(o => {this.RequestToken();});
+            return true;
         }
         else
         {
             Console.WriteLine("Bad Response from AccessService Constructor");
+            return false;
         }
     }
 
