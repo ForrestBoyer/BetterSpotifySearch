@@ -5,6 +5,8 @@ import { MAT_FORM_FIELD_DEFAULT_OPTIONS, MatFormFieldModule } from '@angular/mat
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatSliderModule } from '@angular/material/slider';
 
 @NgModule({
     imports: [
@@ -13,7 +15,9 @@ import { MatInputModule } from '@angular/material/input';
       MatFormFieldModule,
       MatCardModule,
       MatButtonModule,
-      MatInputModule
+      MatInputModule,
+      MatCheckboxModule,
+      MatSliderModule
     ],
     exports: [
       MatToolbarModule,
@@ -21,7 +25,9 @@ import { MatInputModule } from '@angular/material/input';
       MatFormFieldModule,
       MatCardModule,
       MatButtonModule,
-      MatInputModule
+      MatInputModule,
+      MatCheckboxModule,
+      MatSliderModule
     ],
     providers: [
       {provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: {appearance: 'outline'}}
