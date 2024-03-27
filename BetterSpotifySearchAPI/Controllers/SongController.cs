@@ -101,183 +101,183 @@ namespace BetterSpotifySearchAPI.Controllers
             StringBuilder requestBuilder = new StringBuilder("https://api.spotify.com/v1/recommendations?");
             requestBuilder.Append("limit=" + 10);
             if(seed_artists != null){
-                requestBuilder.Append("&=seed_artists" + seed_artists);
+                requestBuilder.Append("&seed_artists=" + seed_artists);
                 all_null = false;
             }
             if(seed_genres != null){
-                requestBuilder.Append("&=seed_genres" + seed_genres);
+                requestBuilder.Append("&seed_genres=" + seed_genres);
                 all_null = false;
             }
             if(seed_songs != null){
-                requestBuilder.Append("&=seed_tracks" + seed_songs);
+                requestBuilder.Append("&seed_tracks=" + seed_songs);
                 all_null = false;
             }
             if(min_acousticness != null){
-                requestBuilder.Append("&=min_acousticness" + min_acousticness);
+                requestBuilder.Append("&min_acousticness=" + min_acousticness);
                 all_null = false;
             }
             if(max_acousticness != null){
-                requestBuilder.Append("&=max_acousticness" + max_acousticness);
+                requestBuilder.Append("&max_acousticness=" + max_acousticness);
                 all_null = false;
             }
             if(target_acousticness != null){
-                requestBuilder.Append("&=target_acousticness" + target_acousticness);
+                requestBuilder.Append("&target_acousticness=" + target_acousticness);
                 all_null = false;
             }
             if(min_danceability != null){
-                requestBuilder.Append("&=min_danceability" + min_danceability);
+                requestBuilder.Append("&min_danceability=" + min_danceability);
                 all_null = false;
             }
             if(max_danceability != null){
-                requestBuilder.Append("&=max_danceability" + max_danceability);
+                requestBuilder.Append("&max_danceability=" + max_danceability);
                 all_null = false;
             }
             if(target_danceability != null){
-                requestBuilder.Append("&=target_danceability" + target_danceability);
+                requestBuilder.Append("&target_danceability=" + target_danceability);
                 all_null = false;
             }
             if(min_duration != null){
-                requestBuilder.Append("&=min_duration_ms" + min_duration);
+                requestBuilder.Append("&min_duration_ms=" + min_duration);
                 all_null = false;
             }
             if(max_duration != null){
-                requestBuilder.Append("&=max_duration_ms" + max_duration);
+                requestBuilder.Append("&max_duration_ms=" + max_duration);
                 all_null = false;
             }
             if(target_duration != null){
-                requestBuilder.Append("&=target_duration_ms" + target_duration);
+                requestBuilder.Append("&target_duration_ms=" + target_duration);
                 all_null = false;
             }
             if(min_energy != null){
-                requestBuilder.Append("&=min_energy" + min_energy);
+                requestBuilder.Append("&min_energy=" + min_energy);
                 all_null = false;
             }
             if(max_energy != null){
-                requestBuilder.Append("&=max_energy" + max_energy);
+                requestBuilder.Append("&max_energy=" + max_energy);
                 all_null = false;
             }
             if(target_energy != null){
-                requestBuilder.Append("&=target_energy" + target_energy);
+                requestBuilder.Append("&target_energy=" + target_energy);
                 all_null = false;
             }
             if(min_instrumentalness != null){
-                requestBuilder.Append("&=min_instrumentalness" + min_instrumentalness);
+                requestBuilder.Append("&min_instrumentalness=" + min_instrumentalness);
                 all_null = false;
             }
             if(max_instrumentalness != null){
-                requestBuilder.Append("&=max_instrumentalness" + max_instrumentalness);
+                requestBuilder.Append("&max_instrumentalness=" + max_instrumentalness);
                 all_null = false;
             }
             if(target_instrumentalness != null){
-                requestBuilder.Append("&=target_instrumentalness" + target_instrumentalness);
+                requestBuilder.Append("&target_instrumentalness=" + target_instrumentalness);
                 all_null = false;
             }
             if(min_key != null){
-                requestBuilder.Append("&=min_key" + min_key);
+                requestBuilder.Append("&min_key=" + min_key);
                 all_null = false;
             }
             if(max_key != null){
-                requestBuilder.Append("&=max_key" + max_key);
+                requestBuilder.Append("&max_key=" + max_key);
                 all_null = false;
             }
             if(target_key != null){
-                requestBuilder.Append("&=target_key" + target_key);
+                requestBuilder.Append("&target_key=" + target_key);
                 all_null = false;
             }
             if(min_liveness != null){
-                requestBuilder.Append("&=min_liveness" + min_liveness);
+                requestBuilder.Append("&min_liveness=" + min_liveness);
                 all_null = false;
             }
             if(max_liveness != null){
-                requestBuilder.Append("&=max_liveness" + max_liveness);
+                requestBuilder.Append("&max_liveness=" + max_liveness);
                 all_null = false;
             }
             if(target_liveness != null){
-                requestBuilder.Append("&=target_liveness" + target_liveness);
+                requestBuilder.Append("&target_liveness=" + target_liveness);
                 all_null = false;
             }
             if(min_loudness != null){
-                requestBuilder.Append("&=min_loudness" + min_loudness);
+                requestBuilder.Append("&min_loudness=" + min_loudness);
                 all_null = false;
             }
             if(max_loudness != null){
-                requestBuilder.Append("&=max_loudness" + max_loudness);
+                requestBuilder.Append("&max_loudness=" + max_loudness);
                 all_null = false;
             }
             if(target_loudness != null){
-                requestBuilder.Append("&=target_loudness" + target_loudness);
+                requestBuilder.Append("&target_loudness=" + target_loudness);
                 all_null = false;
             }
             if(min_mode != null){
-                requestBuilder.Append("&=min_mode" + min_mode);
+                requestBuilder.Append("&min_mode=" + min_mode);
                 all_null = false;
             }
             if(max_mode != null){
-                requestBuilder.Append("&=max_mode" + max_mode);
+                requestBuilder.Append("&max_mode=" + max_mode);
                 all_null = false;
             }
             if(target_mode != null){
-                requestBuilder.Append("&=target_mode" + target_mode);
+                requestBuilder.Append("&target_mode=" + target_mode);
                 all_null = false;
             }
             if(min_popularity != null){
-                requestBuilder.Append("&=min_popularity" + min_popularity);
+                requestBuilder.Append("&min_popularity=" + min_popularity);
                 all_null = false;
             }
             if(max_popularity != null){
-                requestBuilder.Append("&=max_popularity" + max_popularity);
+                requestBuilder.Append("&max_popularity=" + max_popularity);
                 all_null = false;
             }
             if(target_popularity != null){
-                requestBuilder.Append("&=target_popularity" + target_popularity);
+                requestBuilder.Append("&target_popularity=" + target_popularity);
                 all_null = false;
             }
             if(min_speechiness != null){
-                requestBuilder.Append("&=min_speechiness" + min_speechiness);
+                requestBuilder.Append("&min_speechiness=" + min_speechiness);
                 all_null = false;
             }
             if(max_speechiness != null){
-                requestBuilder.Append("&=max_speechiness" + max_speechiness);
+                requestBuilder.Append("&max_speechiness=" + max_speechiness);
                 all_null = false;
             }
             if(target_speechiness != null){
-                requestBuilder.Append("&=target_speechiness" + target_speechiness);
+                requestBuilder.Append("&target_speechiness=" + target_speechiness);
                 all_null = false;
             }
             if(min_tempo != null){
-                requestBuilder.Append("&=min_tempo" + min_tempo);
+                requestBuilder.Append("&min_tempo=" + min_tempo);
                 all_null = false;
             }
             if(max_tempo != null){
-                requestBuilder.Append("&=max_tempo" + max_tempo);
+                requestBuilder.Append("&max_tempo=" + max_tempo);
                 all_null = false;
             }
             if(target_tempo != null){
-                requestBuilder.Append("&=target_tempo" + target_tempo);
+                requestBuilder.Append("&target_tempo=" + target_tempo);
                 all_null = false;
             }
             if(min_time_signature != null){
-                requestBuilder.Append("&=min_time_signature" + min_time_signature);
+                requestBuilder.Append("&min_time_signature=" + min_time_signature);
                 all_null = false;
             }
             if(max_time_signature != null){
-                requestBuilder.Append("&=max_time_signature" + max_time_signature);
+                requestBuilder.Append("&max_time_signature=" + max_time_signature);
                 all_null = false;
             }
             if(target_time_signature != null){
-                requestBuilder.Append("&=target_time_signature" + target_time_signature);
+                requestBuilder.Append("&target_time_signature=" + target_time_signature);
                 all_null = false;
             }
             if(min_valence != null){
-                requestBuilder.Append("&=min_valence" + min_valence);
+                requestBuilder.Append("&min_valence=" + min_valence);
                 all_null = false;
             }
             if(max_valence != null){
-                requestBuilder.Append("&=max_valence" + max_valence);
+                requestBuilder.Append("&max_valence=" + max_valence);
                 all_null = false;
             }
             if(target_valence != null){
-                requestBuilder.Append("&=target_valence" + target_valence);
+                requestBuilder.Append("&target_valence=" + target_valence);
                 all_null = false;
             }
             if(all_null){
