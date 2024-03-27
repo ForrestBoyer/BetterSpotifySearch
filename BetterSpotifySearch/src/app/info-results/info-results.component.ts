@@ -20,7 +20,8 @@ export class InfoResultsComponent implements OnInit {
   public valence?: number;
   public tempo?: number;
   public duration?: number;
-  
+  public genre?: string;
+
   constructor() { }
 
   ngOnInit(): void {
