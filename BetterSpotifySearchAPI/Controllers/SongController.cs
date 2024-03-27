@@ -77,7 +77,7 @@ namespace BetterSpotifySearchAPI.Controllers
             return BadRequest(response);
         }
 
-        public async Task<IActionResult> SearchBy(string? artists, string? genres, string? songs,
+        public async Task<IActionResult> SearchBy(string? seed_artists, string? seed_genres, string? seed_songs,
                                                   float? min_acousticness, float? max_acousticness, float? target_acousticness,
                                                   float? min_danceability, float? max_danceability, float? target_danceability,
                                                   int? min_duration, int? max_duration, int? target_duration,
@@ -100,16 +100,16 @@ namespace BetterSpotifySearchAPI.Controllers
 
             StringBuilder requestBuilder = new StringBuilder("https://api.spotify.com/v1/recommendations?");
             requestBuilder.Append("limit=" + 10);
-            if(artists != null){
-                requestBuilder.Append("&=seed_artists" + artists);
+            if(seed_artists != null){
+                requestBuilder.Append("&=seed_artists" + seed_artists);
                 all_null = false;
             }
-            if(genres != null){
-                requestBuilder.Append("&=seed_genres" + genres);
+            if(seed_genres != null){
+                requestBuilder.Append("&=seed_genres" + seed_genres);
                 all_null = false;
             }
-            if(songs != null){
-                requestBuilder.Append("&=seed_tracks" + songs);
+            if(seed_songs != null){
+                requestBuilder.Append("&=seed_tracks" + seed_songs);
                 all_null = false;
             }
             if(min_acousticness != null){
