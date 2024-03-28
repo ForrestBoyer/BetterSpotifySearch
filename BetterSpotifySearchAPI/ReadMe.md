@@ -11,9 +11,7 @@ ___
 ## Current Endpoints:
 ### Authentication
     http://localhost:40080/api/SpotifyAuthentication/Register
-**REQUIRES A VALID [SPOTIFY DEVELOPER ACCOUNT](https://developer.spotify.com/)** 
-
-**Register MUST be run before Song/Search or Artist/Search**
+**REQUIRES A VALID [SPOTIFY ACCOUNT](https://spotify.com/)** 
 
 *Currently run by opening in browser*
 ### Songs
@@ -35,7 +33,7 @@ Params: string SongID (REQUIRED)
     GET http://localhost:40080/api/Song/SearchBy?{{FeatureName}}={{Feature}}&...
 e.g.:
 ```GET http://localhost:40080/api/Song/SearchBy?min_danceability=0.1&max_dancibility=0.3```  
-Params: string seed\_artists, string seed\_genres, string seed\_songs, min\_, max\_, or target\_ [Features](##Features) (AT LEAST ONE CRITERIA REQUIRED)  
+Params: string seed\_artists, string seed\_genres, string seed\_songs, min\_, max\_, or target\_ [Features](##Features) (AT LEAST ONE SEED CRITERIA REQUIRED)  
 *Returns [Spotify Track Objects](https://developer.spotify.com/documentation/web-api/reference/get-track)* 
 ### Artists
 **Search by Name:**
