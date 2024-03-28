@@ -1,0 +1,16 @@
+<div class="center">
+    <h1> Song Info </h1>
+    <mat-card>
+        <mat-card-content>
+            <mat-form-field>
+                <mat-label>Enter a song</mat-label>
+                <input matInput (input)="setSongName($event)">
+            </mat-form-field>
+        </mat-card-content>
+        <mat-card-content>
+            <button mat-raised-button color="accent" (click)="searchSongInfo()" [routerLink]="['/info-results']"> 
+                Search
+            </button>
+        </mat-card-content>
+    </mat-card>
+</div>

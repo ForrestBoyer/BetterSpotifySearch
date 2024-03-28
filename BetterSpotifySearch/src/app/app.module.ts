@@ -10,13 +10,23 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AngularMaterialModule } from './angular-material.module';
 import { HttpClientModule } from '@angular/common/http';
+import { CriteriaSearchComponent } from './criteria-search/criteria-search.component';
+import { SimilarSearchComponent } from './similar-search/similar-search.component';
+import { SongInfoComponent } from './song-info/song-info.component';
+import { SearchResultsComponent } from './search-results/search-results.component';
+import { InfoResultsComponent } from './info-results/info-results.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavMenuComponent,
     HomeComponent,
-    LoginComponent
+    LoginComponent,
+    CriteriaSearchComponent,
+    SimilarSearchComponent,
+    SongInfoComponent,
+    SearchResultsComponent,
+    InfoResultsComponent
   ],
   imports: [
     BrowserModule,

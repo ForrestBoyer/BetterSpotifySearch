@@ -2,13 +2,18 @@
     <h1>Better Spotify Search</h1>
     <mat-card>
         <mat-card-content>
-            <button mat-raised-button color="accent"> 
+            <button mat-raised-button color="accent" [routerLink]="['/song-criteria-search']"> 
                 Song Critera Search
             </button>
         </mat-card-content>
         <mat-card-content>
-            <button mat-raised-button color="accent"> 
+            <button mat-raised-button color="accent" [routerLink]="['/similar-song-search']"> 
                 Similar Song Search
+            </button>
+        </mat-card-content>
+        <mat-card-content>
+            <button mat-raised-button color="accent" [routerLink]="['/song-info']"> 
+                Song Info
             </button>
         </mat-card-content>
     </mat-card>    
