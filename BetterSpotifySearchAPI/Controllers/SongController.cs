@@ -78,20 +78,20 @@ namespace BetterSpotifySearchAPI.Controllers
         }
 
         public async Task<IActionResult> SearchBy(string? seed_artists, string? seed_genres, string? seed_songs,
-                                                  float? min_acousticness, float? max_acousticness, float? target_acousticness,
-                                                  float? min_danceability, float? max_danceability, float? target_danceability,
+                                                  double? min_acousticness, double? max_acousticness, double? target_acousticness,
+                                                  double? min_danceability, double? max_danceability, double? target_danceability,
                                                   int? min_duration, int? max_duration, int? target_duration,
-                                                  float? min_energy, float? max_energy, float? target_energy,
-                                                  float? min_instrumentalness, float? max_instrumentalness, float? target_instrumentalness,
+                                                  double? min_energy, double? max_energy, double? target_energy,
+                                                  double? min_instrumentalness, double? max_instrumentalness, double? target_instrumentalness,
                                                   int? min_key, int? max_key, int? target_key,
-                                                  float? min_liveness, float? max_liveness, float? target_liveness,
-                                                  float? min_loudness, float? max_loudness, float? target_loudness,
+                                                  double? min_liveness, double? max_liveness, double? target_liveness,
+                                                  double? min_loudness, double? max_loudness, double? target_loudness,
                                                   int? min_mode, int? max_mode, int? target_mode,
                                                   int? min_popularity, int? max_popularity, int? target_popularity,
-                                                  float? min_speechiness, float? max_speechiness, float? target_speechiness,
-                                                  float? min_tempo, float? max_tempo, float? target_tempo,
+                                                  double? min_speechiness, double? max_speechiness, double? target_speechiness,
+                                                  double? min_tempo, double? max_tempo, double? target_tempo,
                                                   int? min_time_signature, int? max_time_signature, int? target_time_signature,
-                                                  float? min_valence, float? max_valence, float? target_valence)
+                                                  double? min_valence, double? max_valence, double? target_valence)
         {
             using HttpClient httpClient = new HttpClient();
             string? _accessToken = _AccessService.GetAccessToken();
