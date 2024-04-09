@@ -36,9 +36,11 @@ export class InfoResultsComponent implements OnInit {
   ngOnInit(): void {
     console.log(this.songName);
     var url = ("api/song/features/"+this.songID);
+    // *** Hard coded test url for dreams - fleetwood mac, replace once id parse is complete ***
+    var testUrl = ("api/song/features/0ofHAoxe9vBkTCp2UQIavz");
     // api call for feature search
     // GET http://localhost:40080/api/Song/Features/{{songID}}
-    this.http.get<string>(url).subscribe(result => 
+    this.http.get<string>(testUrl).subscribe(result => 
       {
         this.songFeatures = result;
         console.log("Song features: ", this.songFeatures)
