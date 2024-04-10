@@ -42,6 +42,7 @@ export class SongInfoComponent implements OnInit {
         this.parse = JSON.stringify(this.songInfo);
         this.parse = JSON.parse(this.parse);
         this.songID = this.parse["tracks"]["items"]["0"]["id"];
+        this.songName = this.parse["tracks"]["items"]["0"]["name"];
         this.songLink = this.parse["tracks"]["items"]["0"]["external_urls"]["spotify"];
 
         // Pass song name and ID to info results page through service
