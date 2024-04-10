@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { SongNameIdService } from '../song-name-id.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-song-info',
@@ -11,10 +12,12 @@ export class SongInfoComponent implements OnInit {
   public songName?: string;
   public songInfo?: string;
   public songID?: string;
+  public parse?: any
 
   constructor(
     protected http: HttpClient, 
-    private nameID:SongNameIdService
+    private nameID:SongNameIdService,
+    private router:Router
   ) { }
 
   ngOnInit(): void {
@@ -22,7 +25,7 @@ export class SongInfoComponent implements OnInit {
 
   setSongName(event: any): void {
     this.songName = event.target.value;
-    console.log("Song name set", this.songName);
+    // console.log("Song name set", this.songName);
   }
 
   searchSongInfo(): void {
@@ -33,14 +36,21 @@ export class SongInfoComponent implements OnInit {
 
     this.http.get<string>(url).subscribe(result => 
       {
+        // *** Parse string to get returned song id ***
         this.songInfo = result;
-        console.log(this.songInfo);
-      }, error => console.error(error));
-    // *** TO DO: Parse string to get returned song name and song id ***
+        this.parse = JSON.stringify(this.songInfo);
+        this.parse = JSON.parse(this.parse);
+        this.songID = this.parse["tracks"]["items"]["0"]["id"];
 
-    // Pass song name and ID to info results page through service
-    this.nameID.setSongId(this.songID);
-    this.nameID.setSongName(this.songName);
+        // Pass song name and ID to info results page through service
+        this.nameID.setSongId(this.songID);
+        this.nameID.setSongName(this.songName);
+        this.router.navigateByUrl('/info-results')
+
+        // console.log(this.songInfo);
+        // console.log("Parse: ", this.parse);
+        console.log("Parsed Song ID: ", this.songID);
+      }, error => console.error(error));
   }
 }
 

@@ -4,16 +4,16 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class SongNameIdService {
-  private songID?: string;
+  private songId?: string;
   private songName?: string;
 
   constructor() { }
 
   setSongId(id?: string) {
-    this.songID = id;
+    this.songId = id;
   }
   getSongId() {
-    return this.songID;
+    return this.songId;
   }
   setSongName(name?: string) {
     this.songName = name;
