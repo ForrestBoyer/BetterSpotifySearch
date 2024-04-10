@@ -11,10 +11,11 @@ export class InfoResultsComponent implements OnInit {
   public songName?: string;
   public songID?: string;
   public songFeatures?: string;
+  public parse?: any;
   public danceability?: number;
   public timeSignature?: number;
   public instrumentalValue?: number;
-  public liveliness?: number;
+  public liveness?: number;
   public loudness?: number;
   public mode?: number;
   public speechiness?: number;
@@ -35,6 +36,7 @@ export class InfoResultsComponent implements OnInit {
   ngOnInit(): void {
     this.songName = this.nameId.getSongName(); 
     this.songID = this.nameId.getSongId();
+    this.songLink = this.nameId.getSongLink();
 
     // console.log("Results name: ", this.songName);
     // console.log("Results id: ", this.songID);
@@ -49,6 +51,23 @@ export class InfoResultsComponent implements OnInit {
       {
         this.songFeatures = result;
         console.log("Song features: ", this.songFeatures)
+
+        // *** Parse string to get song features ***
+        this.parse = JSON.stringify(this.songFeatures);
+        this.parse = JSON.parse(this.parse);
+        this.acousticness = this.parse.acousticness;
+        this.danceability = this.parse.danceability;
+        this.duration = this.parse.duration_ms;
+        this.energy = this.parse.energy;
+        this.instrumentalValue = this.parse.instrumentalness;
+        this.key = this.parse.key;
+        this.liveness = this.parse.liveness;
+        this.loudness = this.parse.loudness;
+        this.mode = this.parse.mode;
+        this.speechiness = this.parse.speechiness;
+        this.tempo = this.parse.tempo;
+        this.timeSignature = this.parse.time_signature;
+        this.valence = this.parse.valence;
       }, error => console.error(error));
   }
 }

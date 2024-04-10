@@ -9,9 +9,10 @@ import { Router } from '@angular/router';
   styleUrls: ['./song-info.component.scss'],
 })
 export class SongInfoComponent implements OnInit {
-  public songName?: string;
   public songInfo?: string;
+  public songName?: string;
   public songID?: string;
+  public songLink?: string;
   public parse?: any
 
   constructor(
@@ -41,15 +42,17 @@ export class SongInfoComponent implements OnInit {
         this.parse = JSON.stringify(this.songInfo);
         this.parse = JSON.parse(this.parse);
         this.songID = this.parse["tracks"]["items"]["0"]["id"];
+        this.songLink = this.parse["tracks"]["items"]["0"]["external_urls"]["spotify"];
 
         // Pass song name and ID to info results page through service
         this.nameID.setSongId(this.songID);
         this.nameID.setSongName(this.songName);
+        this.nameID.setSongLink(this.songLink);
         this.router.navigateByUrl('/info-results')
 
-        // console.log(this.songInfo);
+        console.log(this.songInfo);
         // console.log("Parse: ", this.parse);
-        console.log("Parsed Song ID: ", this.songID);
+        // console.log("Parsed Song ID: ", this.songID);
       }, error => console.error(error));
   }
 }

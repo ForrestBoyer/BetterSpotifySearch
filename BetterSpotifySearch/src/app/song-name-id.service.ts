@@ -6,6 +6,7 @@ import { Injectable } from '@angular/core';
 export class SongNameIdService {
   private songId?: string;
   private songName?: string;
+  private songLink?: string;
 
   constructor() { }
 
@@ -20,5 +21,11 @@ export class SongNameIdService {
   }
   getSongName() {
     return this.songName;
+  }
+  setSongLink(link?: string) {
+    this.songLink = link;
+  }
+  getSongLink() {
+    return this.songLink;
   }
 }
