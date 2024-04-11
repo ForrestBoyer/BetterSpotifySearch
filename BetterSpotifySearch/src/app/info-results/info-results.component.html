@@ -2,7 +2,10 @@
     <h1> Song Data for: {{songName}} </h1>
     <mat-card>
         <mat-card-content>
-            <div class="left"> <mat-label> Genre: {{genre}} </mat-label> </div>
+            <div class="left"> <mat-label> Song Link: <a href={{songLink}}>{{songLink}} </a></mat-label> </div>
+        </mat-card-content>
+        <mat-card-content>
+            <div class="left"> <mat-label> Key: {{key}} </mat-label> </div>
         </mat-card-content>
         <mat-card-content>
             <div class="left"> <mat-label> Danceability: {{danceability}} </mat-label> </div>
@@ -14,7 +17,7 @@
             <div class="left"> <mat-label> Instrumental Value: {{instrumentalValue}} </mat-label> </div>
         </mat-card-content>
         <mat-card-content>
-            <div class="left"> <mat-label> Liveliness: {{liveliness}} </mat-label> </div>
+            <div class="left"> <mat-label> Liveness: {{liveness}} </mat-label> </div>
         </mat-card-content>
         <mat-card-content>
             <div class="left"> <mat-label> Loudness: {{loudness}} </mat-label> </div>
@@ -38,7 +41,8 @@
             <div class="left"> <mat-label> Tempo: {{tempo}} </mat-label> </div>
         </mat-card-content>
         <mat-card-content>
-            <div class="left"> <mat-label> Duration: {{duration}} </mat-label> </div>
+            <div class="left"> <mat-label> Duration (ms): {{duration}} </mat-label> </div>
         </mat-card-content>
     </mat-card>
 </div>
+<router-outlet></router-outlet>

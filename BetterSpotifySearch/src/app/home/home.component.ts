@@ -18,6 +18,7 @@ export class HomeComponent implements OnInit {
     this.http.get<number>(url).subscribe(result => 
       {
         this.number = result;
+        console.log(this.number);
       }, error => console.error(error));
   }
 

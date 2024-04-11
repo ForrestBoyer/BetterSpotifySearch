@@ -1,8 +1,9 @@
 import { HttpClient } from "@angular/common/http";
 import { environment } from "../../environments/environment";
+import { Injectable } from "@angular/core";
 
-export abstract class BaseService<T> {
-
+@Injectable()
+export class BaseService {
     constructor(protected http: HttpClient) { }
 
     protected getUrl(url: string) {
