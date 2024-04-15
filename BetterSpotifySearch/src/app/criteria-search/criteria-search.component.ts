@@ -13,7 +13,7 @@ export class CriteriaSearchComponent implements OnInit {
   public parse?:any;
   public danceability: number = 0;
   public timeSignature: number = 3;
-  public instrumentalValue: number = 1;
+  public instrumentalValue: number = 0;
   public liveness: number = 0;
   public loudness: number = -60;
   public mode: number = 0;
