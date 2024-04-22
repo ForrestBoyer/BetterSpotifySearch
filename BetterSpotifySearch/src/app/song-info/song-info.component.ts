@@ -17,8 +17,8 @@ export class SongInfoComponent implements OnInit {
 
   constructor(
     protected http: HttpClient, 
-    private nameID:SongNameIdService,
-    private router:Router
+    private nameID: SongNameIdService,
+    private router: Router
   ) { }
 
   ngOnInit(): void {

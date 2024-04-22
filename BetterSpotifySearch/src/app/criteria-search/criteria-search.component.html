@@ -1,116 +1,66 @@
 <div class="center">
     <h1> Criteria Search </h1>
     <mat-card>
+        <div class="left">
+            Accousticness: {{acousticness}}
+            <mat-slider min="0.0" max="1.0" step="0.01" (input)="setAcousticness($event)"></mat-slider>
+        </div>
+        <div class="left">
+            Danceability: {{danceability}}
+            <mat-slider min="0.0" max="1.0" step="0.01" (input)="setDanceability($event)"></mat-slider>
+        </div>
+        <div class="left">
+            Duration (s): {{durationSecs}}
+            <mat-slider min="0" max="900" step="1" (input)="setDuration($event)"></mat-slider>
+        </div>
+        <div class="left">
+            Energy: {{energy}}
+            <mat-slider min="0.0" max="1.0" step="0.01" (input)="setEnergy($event)"></mat-slider>
+        </div>
+        <div class="left">
+            Instrumentalness: {{instrumentalValue}}
+            <mat-slider min="0.0" max="1.0" step="0.01" (input)="setInstrumentalness($event)"></mat-slider>
+        </div>
+        <div class="left">
+            Key: {{key}}
+            <mat-slider min="-1" max="11" step="1" (input)="setKey($event)"></mat-slider>
+        </div>
+        <div class="left">
+            Liveness: {{liveness}}
+            <mat-slider min="0.0" max="1.0" step="0.01" (input)="setLiveness($event)"></mat-slider>
+        </div>
+        <div class="left">
+            Loudness (dB): {{loudness}}
+            <mat-slider min="-60.0" max="0.0" step="0.1" (input)="setLoudness($event)"></mat-slider>
+        </div>
+        <div class="left">
+            Mode: {{mode}}
+            <mat-slider min="0" max="1" step="1" (input)="setMode($event)"></mat-slider>
+        </div>
+        <div class="left">
+            Speechiness: {{speechiness}}
+            <mat-slider min="0.0" max="1.0" step="0.01" (input)="setSpeechiness($event)"></mat-slider>
+        </div>
+        <div class="left">
+            Tempo: {{tempo}}
+            <mat-slider min="0.0" max="200.0" step="0.1" (input)="setTempo($event)"></mat-slider>
+        </div>
+        <div class="left">
+            Time Signature: {{timeSignature}}
+            <mat-slider min="3" max="7" step="1" (input)="setTimeSignature($event)"></mat-slider>
+        </div>
+        <div class="left">
+            Valence: {{valence}}
+            <mat-slider min="0.0" max="1.0" step="0.01" (input)="setValence($event)"></mat-slider>
+        </div>
+        <div class="left">
+            <mat-form-field>
+                <mat-label>Genre</mat-label>
+                <input matInput (input)="setGenre($event)">
+            </mat-form-field>
+        </div>
         <mat-card-content>
-            <div class="left">
-                <mat-checkbox> 
-                    Duration
-                </mat-checkbox>
-                <mat-slider>
-                </mat-slider>
-            </div>
-        </mat-card-content>
-        <mat-card-content>
-            <div class="left">
-                <mat-checkbox> 
-                    Tempo
-                </mat-checkbox>
-                <mat-slider>
-                </mat-slider>
-            </div>
-        </mat-card-content>
-        <mat-card-content>
-            <div class="left">
-                <mat-checkbox> 
-                    Valence
-                </mat-checkbox>
-                <mat-slider>
-                </mat-slider>
-            </div>
-        </mat-card-content>
-        <mat-card-content>
-            <div class="left">
-                <mat-checkbox> 
-                    Energy
-                </mat-checkbox>
-                <mat-slider>
-                </mat-slider>
-            </div>
-        </mat-card-content>
-        <mat-card-content>
-            <div class="left">
-                <mat-checkbox> 
-                    Acousticness
-                </mat-checkbox>
-                <mat-slider>
-                </mat-slider>
-            </div>
-        </mat-card-content>
-        <mat-card-content>
-            <div class="left">
-                <mat-checkbox> 
-                    Speechiness
-                </mat-checkbox>
-                <mat-slider>
-                </mat-slider>
-            </div>
-        </mat-card-content>
-        <mat-card-content>
-            <div class="left">
-                <mat-checkbox> 
-                    Mode
-                </mat-checkbox>
-                <mat-slider>
-                </mat-slider>
-            </div>
-        </mat-card-content>
-        <mat-card-content>
-            <div class="left">
-                <mat-checkbox> 
-                    Loudness
-                </mat-checkbox>
-                <mat-slider>
-                </mat-slider>
-            </div>
-        </mat-card-content>
-        <mat-card-content>
-            <div class="left">
-                <mat-checkbox> 
-                    Liveliness
-                </mat-checkbox>
-                <mat-slider>
-                </mat-slider>
-            </div>
-        </mat-card-content>
-        <mat-card-content>
-            <div class="left">
-                <mat-checkbox> 
-                    Instrumental Value
-                </mat-checkbox>
-                <mat-slider>
-                </mat-slider>
-            </div>
-        </mat-card-content>
-        <mat-card-content>
-            <div class="left">
-                <mat-checkbox> 
-                    Time Signature
-                </mat-checkbox>
-                <mat-slider>
-                </mat-slider>
-            </div>
-        </mat-card-content>
-        <mat-card-content>
-            <div class="left">
-                <mat-checkbox> 
-                    Danceability
-                </mat-checkbox>
-                <mat-slider>
-                </mat-slider>
-            </div>
-        </mat-card-content>
-        <mat-card-content>
-            <button mat-raised-button color="accent" [routerLink]="['/results']"> 
+            <button mat-raised-button color="accent" (click)="criteriaSearch()"> 
                 Search
             </button>
         </mat-card-content>
