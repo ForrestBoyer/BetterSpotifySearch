@@ -36,6 +36,7 @@ export class Song {
         this.genre = song.genre;
         this.key = song.key;
     }
+
 }
 
 function createDefaultSongField(): SongField {

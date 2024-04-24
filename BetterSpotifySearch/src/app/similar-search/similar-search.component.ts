@@ -67,6 +67,7 @@ export class SimilarSearchComponent implements OnInit {
               var url = "api/song/SearchBy/";
               let params = [];
 
+              params.push("seed_songs=" + this.song.songId.value);
               this.song.genre.enabled && params.push("seed_genres=" + this.song.genre.value);
               this.song.acousticness.enabled && params.push("target_acousticness=" + this.song.acousticness.value);
               this.song.danceability.enabled && params.push("target_danceability=" + this.song.danceability.value);
@@ -89,6 +90,16 @@ export class SimilarSearchComponent implements OnInit {
               this.http.get<string>(url).subscribe(result => 
                 {
                     var parse = JSON.parse(JSON.stringify(result));
+                    for (var i = 0; i < 10; i++)
+                    {
+                        if (parse["tracks"][i]["id"] != this.song.songId)
+                        {
+                            this.nameID.setSongId(parse["tracks"][i]["id"]);
+                            this.nameID.setSongName(parse["tracks"][i]["name"]);
+                            this.nameID.setSongLink(parse["tracks"][i]["external_urls"]["spotify"]);
+                            this.router.navigateByUrl('/results')
+                        }
+                    }
                 })
             }, error => console.error(error));
         }, error => console.error(error));
