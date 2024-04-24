@@ -9,88 +9,71 @@
         </mat-card-content>
         <mat-card-content>
             <div class="left">
-                <mat-checkbox> 
+                <mat-checkbox [checked]="song.duration.enabled" (change)="song.duration.enabled = $event.checked"> 
                     Duration
                 </mat-checkbox>
             </div>
-        </mat-card-content>
-        <mat-card-content>
             <div class="left">
-                <mat-checkbox> 
+                <mat-checkbox [checked]="song.tempo.enabled" (change)="song.tempo.enabled = $event.checked">
                     Tempo
                 </mat-checkbox>
             </div>
-        </mat-card-content>
-        <mat-card-content>
             <div class="left">
-                <mat-checkbox> 
+                <mat-checkbox [checked]="song.valence.enabled" (change)="song.valence.enabled = $event.checked">
                     Valence
                 </mat-checkbox>
             </div>
-        </mat-card-content>
-        <mat-card-content>
             <div class="left">
-                <mat-checkbox> 
+                <mat-checkbox [checked]="song.energy.enabled" (change)="song.energy.enabled = $event.checked">
                     Energy
                 </mat-checkbox>
             </div>
-        </mat-card-content>
-        <mat-card-content>
             <div class="left">
-                <mat-checkbox> 
+                <mat-checkbox [checked]="song.acousticness.enabled" (change)="song.acousticness.enabled = $event.checked">
                     Acousticness
                 </mat-checkbox>
             </div>
-        </mat-card-content>
-        <mat-card-content>
             <div class="left">
-                <mat-checkbox> 
+                <mat-checkbox [checked]="song.speechiness.enabled" (change)="song.speechiness.enabled = $event.checked">
                     Speechiness
                 </mat-checkbox>
             </div>
-        </mat-card-content>
-        <mat-card-content>
             <div class="left">
-                <mat-checkbox> 
+                <mat-checkbox [checked]="song.mode.enabled" (change)="song.mode.enabled = $event.checked">
                     Mode
                 </mat-checkbox>
             </div>
-        </mat-card-content>
-        <mat-card-content>
             <div class="left">
-                <mat-checkbox> 
+                <mat-checkbox [checked]="song.loudness.enabled" (change)="song.loudness.enabled = $event.checked">
                     Loudness
                 </mat-checkbox>
             </div>
-        </mat-card-content>
-        <mat-card-content>
             <div class="left">
-                <mat-checkbox> 
+                <mat-checkbox [checked]="song.liveness.enabled" (change)="song.liveness.enabled = $event.checked">
                     Liveliness
                 </mat-checkbox>
             </div>
-        </mat-card-content>
-        <mat-card-content>
             <div class="left">
-                <mat-checkbox> 
+                <mat-checkbox [checked]="song.instrumentalValue.enabled" (change)="song.instrumentalValue.enabled = $event.checked">
                     Instrumental Value
                 </mat-checkbox>
             </div>
-        </mat-card-content>
-        <mat-card-content>
             <div class="left">
-                <mat-checkbox> 
+                <mat-checkbox [checked]="song.timeSignature.enabled" (change)="song.timeSignature.enabled = $event.checked">
                     Time Signature
                 </mat-checkbox>
             </div>
-        </mat-card-content>
-        <mat-card-content>
             <div class="left">
-                <mat-checkbox> 
+                <mat-checkbox [checked]="song.danceability.enabled" (change)="song.danceability.enabled = $event.checked">
                     Danceability
                 </mat-checkbox>
             </div>
-        </mat-card-content>
+            <div class="left">
+                <mat-checkbox [checked]="song.key.enabled" (change)="song.key.enabled = $event.checked">
+                    Key
+                </mat-checkbox>
+            </div>
+        </mat-card-content> 
         <mat-card-content>
             <button mat-raised-button color="accent" (click)="searchSimilarSongs()">
                 Search

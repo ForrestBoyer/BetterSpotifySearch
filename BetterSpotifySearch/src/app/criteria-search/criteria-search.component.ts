@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { SongNameIdService } from '../song-name-id.service';
 import { Router } from '@angular/router';
+import { Song, createDefaultSong } from '../objects/Song';
 
 @Component({
   selector: 'app-criteria-search',
@@ -30,8 +31,8 @@ export class CriteriaSearchComponent implements OnInit {
   constructor(
     protected http: HttpClient, 
     private nameID: SongNameIdService,
-    private router: Router
-  ) { }
+    private router: Router,
+  ) {}
 
   ngOnInit(): void {
   }
